@@ -66,7 +66,7 @@ class Network {
   }
 
   //paramsCreate for post method
-  static Map<String, String> paramsCreate(Post post) {
+  static Map<String, String> paramsCreate(User post) {
     Map<String, String> params = {};
     params.addAll({
       "name": post.name!,
@@ -78,13 +78,14 @@ class Network {
   }
 
   //paramsUpdate for put method
-  static Map<String, String> paramsUpdate(Post post) {
+  static Map<String, String> paramsUpdate(User post) {
     Map<String, String> params = {};
     params.addAll({
       "name": post.name!,
       "salary": post.salary.toString(),
       "age": post.age.toString(),
     });
+    print(params);
     return params;
   }
 

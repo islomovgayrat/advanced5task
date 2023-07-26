@@ -1,26 +1,25 @@
-class Post {
+class User {
   String? name;
   double? salary;
   int? age;
   int? id;
 
-  Post({
-    this.name,
-    this.salary,
-    this.age,
-    this.id,
-  });
+  User(
+      {required this.id,
+      required this.name,
+      required this.salary,
+      required this.age});
 
-  Post.fromJson(Map<String, dynamic> json)
-      : name = json['name'],
+  User.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        name = json['name'],
         salary = json['salary'],
-        age = json['age'],
-        id = json['id'];
+        age = json['age'];
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'name': name,
         'salary': salary,
         'age': age,
-        'id': id,
       };
 }

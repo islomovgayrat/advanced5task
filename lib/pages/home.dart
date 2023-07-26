@@ -19,11 +19,11 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
     //apiPostList();
-    var post = Post(name: 'murod', salary: 12.300, age: 4);
-    // apiPostGet(post);
-    apiPostCreate(post);
-    // apiPostUpdate(post);
-    // apiPostDelete(post);
+    var post = User(id: 1, name: 'Murod', salary: 12.300, age: 4);
+    //apiPostGet(post);
+    //apiPostCreate(post);
+    apiPostUpdate(post);
+    //apiPostDelete(post);
   }
 
   void apiPostList() {
@@ -32,20 +32,20 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void apiPostGet(Post post) {
+  void apiPostGet(User post) {
     Network.GET(Network.API_GET + post.id.toString(), Network.paramsEmpty())
         .then((value) {
       LogService.i(value.toString());
     });
   }
 
-  void apiPostCreate(Post post) {
+  void apiPostCreate(User post) {
     Network.POST(Network.API_CREATE, Network.paramsCreate(post)).then((value) {
       LogService.i(value.toString());
     });
   }
 
-  void apiPostUpdate(Post post) {
+  void apiPostUpdate(User post) {
     Network.PUT(
             Network.API_UPDATE + post.id.toString(), Network.paramsUpdate(post))
         .then((value) {
@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void apiPostDelete(Post post) {
+  void apiPostDelete(User post) {
     Network.DELETE(
             Network.API_DELETE + post.id.toString(), Network.paramsEmpty())
         .then((value) {
